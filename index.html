@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>The Wedding of Nanda & Fajar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+</head>
+<body>
+
+    <!-- ====== MUSIC TOGGLE BUTTON (HIDDEN INITIALLY ON COVER) ====== -->
+    <button id="musicToggle" class="music-toggle paused" aria-label="Toggle Musik" title="Putar / Jeda Musik">
+        <i class="fas fa-compact-disc disc-icon"></i>
+        <div class="music-bars">
+            <span></span><span></span><span></span>
+        </div>
+    </button>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/audio/bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ====== COVER SECTION (REFERENSI: image-1346.jpeg) ====== -->
+    <section id="cover" class="cover-section">
+        <!-- Floating falling petals effect -->
+        <div class="floating-petals" id="floatingPetals"></div>
+
+        <!-- Ornamen Atas: Full width 100%, menjuntai dari batas paling atas, sedikit menutupi/overlap atas oval -->
+        <div class="cover-floral-top">
+            <img src="assets/images/cover-top-arch.png" alt="Ornamen Bunga Atas" class="floral-arch-img">
+        </div>
+
+        <!-- Ornamen Samping Kiri & Kanan (Flanking Oval Sesuai Foto) -->
+        <div class="cover-floral-side-left">
+            <img src="assets/images/cover-side-bouquet.png" alt="Ornamen Samping Kiri" class="floral-side-img">
+        </div>
+        <div class="cover-floral-side-right">
+            <img src="assets/images/cover-side-bouquet.png" alt="Ornamen Samping Kanan" class="floral-side-img flipped-x">
+        </div>
+
+        <!-- Cover Center Content: Oval Frame + Greeting + Button -->
+        <div class="cover-content">
+            <div class="oval-frame-wrapper">
+                <div class="oval-frame">
+                    <div class="oval-inner">
+                        <div class="monogram-text">N &amp; F</div>
+                        <p class="wedding-of">THE WEDDING OF</p>
+                        <h1 class="couple-names">
+                            <span class="name-bride">Nanda</span>
+                            <span class="ampersand">&amp;</span>
+                            <span class="name-groom">Fajar</span>
+                        </h1>
+                        <p class="wedding-date">29 . 11 . 26</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cover-action-group">
+                <div class="dear-section">
+                    <p class="dear-label">kpd Bapak/Ibu/Saudara/i :</p>
+                    <p class="guest-name" id="guestName">Tamu Undangan</p>
+                </div>
+
+                <div class="btn-open-wrapper">
+                    <button id="openBtn" class="btn-open">
+                        <span>OPEN INVITATION</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ornamen Bawah: Full width 100%, menempel persis di dasar layar -->
+        <div class="cover-floral-bottom">
+            <img src="assets/images/8.png" alt="Bunga Kiri Luar" class="floral-item floral-1">
+            <img src="assets/images/7.png" alt="Bunga Kiri Tengah" class="floral-item floral-2">
+            <img src="assets/images/6.png" alt="Bunga Kanan Tengah" class="floral-item floral-3">
+            <img src="assets/images/9.png" alt="Bunga Kanan Luar" class="floral-item floral-4">
+        </div>
+    </section>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main id="mainContent" class="main-content">
+
+        <!-- ====== OPENING / VIDEO + COUNTDOWN ====== -->
+        <section id="opening" class="section opening" data-section="opening">
+
+            <div class="section-inner">
+                <!-- 9:16 Portrait Video Opening -->
+                <div class="video-container animate-on-scroll">
+                    <div class="video-aspect-box">
+                        <video id="openingVideo" controls playsinline muted poster="assets/images/couple.jpg">
+                            <source src="assets/video/opening.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung video.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-container animate-on-scroll">
+                    <h3 class="countdown-heading">Menuju Hari Bahagia</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Hari</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Jam</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Menit</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Detik</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quran Quote Box -->
+                <div class="quote-box animate-on-scroll">
+                    <div class="ornament-divider-line"></div>
+                    <p class="quran-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    <p class="quran-quote">
+                        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+                    </p>
+                    <p class="quran-ref">— Q.S Ar-Rum: 21 —</p>
+                    <div class="ornament-divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== BRIDE & GROOM ====== -->
+        <section id="mempelai" class="section mempelai" data-section="mempelai">
+            
+            <div class="section-inner">
+                <h2 class="section-title animate-on-scroll">Bride &amp; Groom</h2>
+                <div class="ornament-subtitle animate-on-scroll">✦ Pasangan Mempelai ✦</div>
+
+                <p class="mempelai-intro animate-on-scroll">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan putra-putri kami:
+                </p>
+
+                <!-- Mempelai Wanita -->
+                <div class="profile-card animate-on-scroll">
+                    <div class="profile-photo-wrapper">
+                        <div class="photo-glow-ring"></div>
+                        <img src="assets/images/nanda.jpg" alt="Nanda Rahayu" class="profile-photo">
+                    </div>
+                    <h3 class="profile-name">Nanda Rahayu</h3>
+                    <p class="profile-parents">
+                        Putri tercinta dari:<br>
+                        <strong>Bapak Suhendra</strong> &amp; <strong>Ibu Mamah Rohimah</strong>
+                    </p>
+                </div>
+
+                <!-- Divider between Bride & Groom -->
+                <div class="couple-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <span class="ampersand-big">&amp;</span>
+                    <div class="connector-line"></div>
+                </div>
+
+                <!-- Mempelai Pria -->
+                <div class="profile-card animate-on-scroll">
+                    <div class="profile-photo-wrapper">
+                        <div class="photo-glow-ring"></div>
+                        <img src="assets/images/fajar.jpg" alt="Fajar Iriyanto" class="profile-photo">
+                    </div>
+                    <h3 class="profile-name">Fajar Iriyanto</h3>
+                    <p class="profile-parents">
+                        Putra tercinta dari:<br>
+                        <strong>Bapak Yusnelly A. S (Alm)</strong> &amp; <strong>Ibu Lilis Setiawati</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== WEDDING DAY (DETAIL ACARA) ====== -->
+        <section id="acara" class="section acara" data-section="acara">
+
+            <div class="section-inner">
+                <h2 class="section-title animate-on-scroll">Wedding Day</h2>
+                <div class="ornament-subtitle animate-on-scroll">✦ Waktu &amp; Lokasi Acara ✦</div>
+
+                <!-- Akad Nikah -->
+                <div class="event-card animate-on-scroll">
+                    <div class="event-icon-box">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h3 class="event-type">Akad Nikah</h3>
+                    <div class="event-divider-line"></div>
+                    <div class="event-details">
+                        <div class="event-row">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>Minggu, 29 November 2026</span>
+                        </div>
+                        <div class="event-row highlight-time">
+                            <i class="far fa-clock"></i>
+                            <span>10.00 WIB</span>
+                        </div>
+                        <div class="event-row">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Gedung Serba Guna Al-Madinah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="events-spacer animate-on-scroll">
+                    <span class="gold-diamond">◆</span>
+                </div>
+
+                <!-- Resepsi / Walimah -->
+                <div class="event-card animate-on-scroll">
+                    <div class="event-icon-box">
+                        <i class="fas fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="event-type">Resepsi / Walimah</h3>
+                    <div class="event-divider-line"></div>
+                    <div class="event-details">
+                        <div class="event-row">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>Minggu, 29 November 2026</span>
+                        </div>
+                        <div class="event-row highlight-time">
+                            <i class="far fa-clock"></i>
+                            <span>13.00 - 15.00 WIB</span>
+                        </div>
+                        <div class="event-row">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Gedung Serba Guna Al-Madinah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Button -->
+                <div class="maps-action animate-on-scroll">
+                    <a href="https://maps.app.goo.gl/Eqo8HRkSKhyYoocr6?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-maps">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span>Buka Google Maps</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TURUT MENGUNDANG ====== -->
+        <section id="keluarga" class="section keluarga" data-section="keluarga">
+            <div class="section-inner">
+                <h2 class="section-title animate-on-scroll">Turut Mengundang</h2>
+                <div class="ornament-subtitle animate-on-scroll">✦ Keluarga Besar ✦</div>
+
+                <div class="family-grid animate-on-scroll">
+                    <div class="family-card">
+                        <p class="family-name">Esa Nugraha</p>
+                        <p class="family-relation">Kakak</p>
+                    </div>
+                    <div class="family-card">
+                        <p class="family-name">Risya Ulfa Quraisy, S.Pd.</p>
+                        <p class="family-relation">Kakak Ipar</p>
+                    </div>
+                    <div class="family-card">
+                        <p class="family-name">Hari Setiawan</p>
+                        <p class="family-relation">Kakak</p>
+                    </div>
+                    <div class="family-card">
+                        <p class="family-name">Fitria Lidiasari, S.Pd.</p>
+                        <p class="family-relation">Kakak Ipar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== WEDDING GIFT ====== -->
+        <section id="gift" class="section gift" data-section="gift">
+            <div class="section-inner">
+                <h2 class="section-title animate-on-scroll">Wedding Gift</h2>
+                <div class="ornament-subtitle animate-on-scroll">✦ Tanda Kasih ✦</div>
+                
+                <p class="gift-intro animate-on-scroll">
+                    Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, kami menyediakan amplop digital di bawah ini:
+                </p>
+
+                <!-- Rekening 1: Fajar -->
+                <div class="bank-card animate-on-scroll">
+                    <div class="bank-header">
+                        <span class="bank-brand">BNI</span>
+                        <i class="fas fa-credit-card bank-icon"></i>
+                    </div>
+                    <div class="bank-account-num">1978614070</div>
+                    <div class="bank-holder">a/n Fajar Iriyanto</div>
+                    <button class="btn-copy" data-copy="1978614070">
+                        <i class="far fa-copy"></i>
+                        <span>Salin No. Rekening</span>
+                    </button>
+                </div>
+
+                <!-- Rekening 2: Nanda -->
+                <div class="bank-card animate-on-scroll">
+                    <div class="bank-header">
+                        <span class="bank-brand">BNI</span>
+                        <i class="fas fa-credit-card bank-icon"></i>
+                    </div>
+                    <div class="bank-account-num">2029101967</div>
+                    <div class="bank-holder">a/n Nanda Rahayu</div>
+                    <button class="btn-copy" data-copy="2029101967">
+                        <i class="far fa-copy"></i>
+                        <span>Salin No. Rekening</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== RSVP & UCAPAN ====== -->
+        <section id="rsvp" class="section rsvp" data-section="rsvp">
+            <div class="section-inner">
+                <h2 class="section-title animate-on-scroll">RSVP &amp; Ucapan</h2>
+                <div class="ornament-subtitle animate-on-scroll">✦ Doa &amp; Konfirmasi Kehadiran ✦</div>
+
+                <!-- RSVP Form -->
+                <form id="rsvpForm" class="rsvp-form animate-on-scroll">
+                    <div class="form-group">
+                        <label for="rsvpName"><i class="fas fa-user"></i> Nama Anda</label>
+                        <input type="text" id="rsvpName" placeholder="Contoh: Budi Santoso &amp; Keluarga" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rsvpAttendance"><i class="fas fa-check-circle"></i> Konfirmasi Kehadiran</label>
+                        <select id="rsvpAttendance" required>
+                            <option value="" disabled selected>-- Pilih Kehadiran --</option>
+                            <option value="hadir">✓ Hadir</option>
+                            <option value="tidak_hadir">✗ Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rsvpMessage"><i class="fas fa-comment-dots"></i> Ucapan &amp; Doa</label>
+                        <textarea id="rsvpMessage" rows="4" placeholder="Tulis ucapan dan doa terbaik untuk kedua mempelai..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Kirim Ucapan</span>
+                    </button>
+                </form>
+
+                <!-- Messages List -->
+                <div class="messages-container animate-on-scroll" id="messagesContainer">
+                    <h3 class="messages-title"><i class="fas fa-comments"></i> Ucapan Doa Restu</h3>
+                    <div class="messages-list" id="messagesList">
+                        <!-- Loaded dynamically via script.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== FOOTER / PENUTUP ====== -->
+        <footer class="footer-section">
+            <div class="footer-inner">
+                <div class="footer-photo-frame animate-on-scroll">
+                    <div class="photo-arch-border">
+                        <img src="assets/images/couple.jpg" alt="Nanda Rahayu &amp; Fajar Iriyanto" class="footer-couple-photo">
+                    </div>
+                </div>
+
+                <p class="footer-salam animate-on-scroll">Dengan salam cinta,</p>
+                <h2 class="footer-names animate-on-scroll">Nanda &amp; Fajar</h2>
+                
+                <p class="footer-closing-text animate-on-scroll">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+                </p>
+
+                <div class="footer-divider-line animate-on-scroll"></div>
+
+                <p class="footer-tagline animate-on-scroll">
+                    THE WEDDING OF NANDA &amp; FAJAR — 29 . 11 . 26
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ====== STICKY BOTTOM NAVIGATION ====== -->
+    <nav id="bottomNav" class="bottom-nav">
+        <a href="#opening" class="nav-item active" data-target="opening">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#mempelai" class="nav-item" data-target="mempelai">
+            <i class="fas fa-heart"></i>
+            <span>Mempelai</span>
+        </a>
+        <a href="#acara" class="nav-item" data-target="acara">
+            <i class="far fa-calendar-alt"></i>
+            <span>Acara</span>
+        </a>
+        <a href="#gift" class="nav-item" data-target="gift">
+            <i class="fas fa-gift"></i>
+            <span>Hadiah</span>
+        </a>
+        <a href="#rsvp" class="nav-item" data-target="rsvp">
+            <i class="fas fa-envelope"></i>
+            <span>RSVP</span>
+        </a>
+    </nav>
+
+    <!-- Floating Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
