@@ -4,7 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // ---- CONFIG ----
-    // Akad Nikah: 29 November 2026, 10:00 WIB (UTC+7)
     const WEDDING_DATE = new Date('2026-11-29T10:00:00+07:00');
 
     // ---- DOM ELEMENTS ----
@@ -21,12 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const toast = document.getElementById('toast');
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwFrtUpyY63lKAkfwHrYLXRg2X5kjOUKK50tg_9sC1xsjCjAOgbDITUe4XAMaUTNWNBDw/exec";
 
-    // ---- INITIAL MUSIC TOGGLE STATE: GUARANTEED HIDDEN ON COVER ----
+    let isMusicPlaying = false;
+
+    // ---- INITIAL MUSIC TOGGLE STATE & AUTOPLAY ATTEMPT ----
     if (musicToggle) {
         musicToggle.classList.remove('show-music-toggle');
     }
 
-    // ---- DYNAMIC GUEST NAME FROM URL (?to=Nama+Tamu) ----
+    // Mencoba memaksa musik berputar saat link dibuka (akan diblokir oleh sebagian besar browser hingga ada klik)
+    if (bgMusic) {
+        bgMusic.volume = 0.5;
+        bgMusic.play().then(() => {
+            isMusicPlaying = true;
+        }).catch((err) => {
+            console.log("Autoplay musik ditahan oleh browser. Menunggu klik Open Invitation.");
+        });
+    }
+
+    // ---- DYNAMIC GUEST NAME FROM URL ----
     const urlParams = new URLSearchParams(window.location.search);
     const guestParam = urlParams.get('to');
     if (guestParam && guestNameEl) {
@@ -52,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             petal.style.width = `${size}px`;
             petal.style.height = `${size}px`;
 
-            // Random petal shapes & soft burgundy/rose shades
             const shapes = ['50% 0 50% 0', '0 50% 0 50%', '50% 30% 50% 30%'];
             petal.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
             
@@ -68,18 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(petal);
         }
     }
-
-    // ---- OPEN INVITATION (TRANSITION & MUSIC VISIBILITY LOGIC) ----
+    
+    // ---- OPEN INVITATION LOGIC ----
     openBtn.addEventListener('click', () => {
         cover.classList.add('open');
         document.body.classList.add('cover-open');
 
-        // CRITICAL SPEC: Tampilkan ikon pemutar musik HANYA SETELAH tombol ditekan
-        if (musicToggle) {
-            musicToggle.classList.add('show-music-toggle');
-        }
-
-        // Putar musik latar segera setelah interaksi pengguna
+        // Pastikan musik berputar setelah interaksi klik
         playMusic();
 
         setTimeout(() => {
@@ -87,22 +92,36 @@ document.addEventListener('DOMContentLoaded', () => {
             bottomNav.classList.add('visible');
             cover.style.display = 'none';
 
-            // Autoplay silent opening video
+            // Pastikan halaman berada di paling atas agar video fullscreen langsung terlihat
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Langsung putar video tanpa mengunci layar (tamu tetap bisa scroll)
             if (openingVideo) {
-                openingVideo.muted = true;
+                openingVideo.muted = true; // Video mute agar tidak bentrok dengan musik
                 openingVideo.play().catch(() => {
-                    // Browser autoplay policy fallback
+                    console.log("Autoplay video ditahan browser.");
                 });
             }
 
-            // Trigger scroll animation check for first section
             triggerScrollAnimations();
         }, 800);
     });
 
-    // ---- BACKGROUND MUSIC LOGIC ----
-    let isMusicPlaying = false;
+    // ---- SENSOR SCROLL UNTUK TOGGLE MUSIK ----
+    window.addEventListener('scroll', () => {
+        // Hanya jalankan sensor ini jika cover sudah terbuka
+        if (document.body.classList.contains('cover-open') && musicToggle) {
+            // Jika tamu scroll ke bawah melewati 25% dari tinggi layar
+            if (window.scrollY > window.innerHeight * 0.25) {
+                musicToggle.classList.add('show-music-toggle'); // Munculkan Toggle
+            } else {
+                // Sembunyikan lagi jika tamu kembali ke paling atas (sedang nonton video)
+                musicToggle.classList.remove('show-music-toggle'); 
+            }
+        }
+    });
 
+    // ---- BACKGROUND MUSIC LOGIC ----
     function playMusic() {
         if (!bgMusic) return;
         bgMusic.volume = 0.5;
@@ -125,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         musicToggle.setAttribute('title', 'Putar Musik');
     }
 
-    // Music toggle click handler
     if (musicToggle) {
         musicToggle.addEventListener('click', () => {
             if (isMusicPlaying) {
@@ -138,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Always keep video muted so video audio never conflicts with digital invitation music
     if (openingVideo) {
         openingVideo.muted = true;
         openingVideo.addEventListener('volumechange', () => {
@@ -148,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---- COUNTDOWN TIMER (29 Nov 2026 10:00 WIB) ----
+    // ---- COUNTDOWN TIMER ----
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
@@ -196,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.innerHTML = '<i class="far fa-copy"></i> <span>Salin No. Rekening</span>';
                 }, 2200);
             } catch (err) {
-                // Clipboard fallback for older browsers
                 const tempInput = document.createElement('textarea');
                 tempInput.value = accNumber;
                 tempInput.style.position = 'fixed';
@@ -238,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const payload = { name, attendance, message, timestamp: new Date().toISOString() };
 
             try {
-                // Mengirim data langsung ke Google Sheets (Apps Script)
                 const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
                     body: JSON.stringify(payload)
@@ -266,13 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LocalStorage Fallback for RSVP
     function saveMessageLocally(data) {
         const stored = JSON.parse(localStorage.getItem('nanda_fajar_wishes') || '[]');
-        stored.unshift({
-            id: Date.now(),
-            ...data
-        });
+        stored.unshift({ id: Date.now(), ...data });
         localStorage.setItem('nanda_fajar_wishes', JSON.stringify(stored));
     }
 
@@ -280,10 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return JSON.parse(localStorage.getItem('nanda_fajar_wishes') || '[]');
     }
 
-    // Load Messages from API or Fallback
     async function loadMessages() {
         if (!messagesList) return;
-
         try {
             const res = await fetch(WEB_APP_URL);
             if (res.ok) {
@@ -291,10 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderMessages(messages);
                 return;
             }
-        } catch (e) {
-            // fallback ke localstorage jika offline
-        }
-
+        } catch (e) {}
         renderMessages(getLocalMessages());
     }
 
@@ -332,15 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const date = new Date(isoStr);
             return date.toLocaleDateString('id-ID', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
+                day: 'numeric', month: 'short', year: 'numeric',
+                hour: '2-digit', minute: '2-digit'
             });
-        } catch (e) {
-            return '';
-        }
+        } catch (e) { return ''; }
     }
 
     function escapeHtml(str) {
@@ -350,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return div.innerHTML;
     }
 
-    // Initial load of messages
     loadMessages();
 
     // ---- STICKY BOTTOM NAV ----
@@ -370,7 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Scrollspy for active nav item
     const scrollspyObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -384,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(sec => scrollspyObserver.observe(sec));
 
-    // ---- SCROLL ANIMATIONS (INTERSECTION OBSERVER) ----
+    // ---- SCROLL ANIMATIONS ----
     const animObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -401,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     triggerScrollAnimations();
 
-    // ---- TOAST NOTIFICATION UTILITY ----
+    // ---- TOAST NOTIFICATION ----
     let toastTimeout;
     function showToast(msg) {
         if (!toast) return;
