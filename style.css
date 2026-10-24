@@ -422,20 +422,20 @@ img {
 
 .monogram-text {
     font-family: var(--font-script);
-    font-size: 24px;
+    font-size: 30px;
     color: var(--gold-dark);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     letter-spacing: 2px;
 }
 
 .wedding-of {
     font-family: var(--font-heading);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 5px;
     color: #6a4f32;
     text-transform: uppercase;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .couple-names {
@@ -447,15 +447,15 @@ img {
 
 .name-bride, .name-groom {
     font-family: var(--font-script);
-    font-size: 44px;
+    font-size: 54px;
     color: #2b0e1b;
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 0.95;
 }
 
 .ampersand {
     font-family: var(--font-script);
-    font-size: 30px;
+    font-size: 13px;
     color: var(--gold-dark);
     line-height: 1;
     margin: -4px 0;
@@ -1649,25 +1649,51 @@ img {
 /* Tablet & iPad (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .oval-frame {
-        width: 290px;
-        height: 420px;
+        width: 360px;
+        height: 500px;
+    }
+
+    .oval-inner {
+        padding: 30px 20px;
+    }
+
+    .monogram-text {
+         font-size: 38px; 
+         margin-bottom: 8px; 
+    }
+
+    .wedding-of { 
+        font-size: 13px; 
+        margin-bottom: 12px; 
+        letter-spacing: 6px; 
+    }
+
+    .wedding-date { 
+        font-size: 15px; 
+        margin-top: 14px; 
+    }
+
+    .ampersand{ 
+        font-size: 42px;
+        margin: -2px 0; 
     }
 
     .name-bride, .name-groom {
-        font-size: 46px;
+        font-size: 68px; 
+        line-height: 1;
     }
 
     .section-inner {
-        max-width: 480px;
+        max-width: 600px;
     }
 
     .section-title {
-        font-size: 50px;
+        font-size: 58px;
     }
 
     .photo-arch-border {
-        width: 280px;
-        height: 380px;
+        width: 340px;
+        height: 460px;
     }
 }
 
@@ -1678,8 +1704,23 @@ img {
         height: min(390px, 46vh);
     }
 
-    .name-bride, .name-groom {
-        font-size: 42px;
+    .monogram-text {
+        font-size: 15px !important;
+        margin-top: 5px !important;
+    }
+
+    .wedding-of {
+        margin-bottom: 15px !important;
+    }
+
+    .name-bride, .name-groom { 
+        font-size: 50px;
+        margin-bottom: 10px !important;  
+    }
+
+    .ampersand { 
+        font-size: 36px;
+        margin-bottom: 7px !important;
     }
 
     .section {
@@ -1713,26 +1754,26 @@ img {
     }
 
     .monogram-text {
-        font-size: 18px;
+        font-size: 22px;
         margin-bottom: 2px;
     }
 
     .wedding-of {
-        font-size: 8px;
+        font-size: 9px;
         letter-spacing: 4px;
         margin-bottom: 4px;
     }
 
     .name-bride, .name-groom {
-        font-size: 34px;
+        font-size: 42px;
     }
 
     .ampersand {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .wedding-date {
-        font-size: 10px;
+        font-size: 11px;
         margin-top: 4px;
     }
 
@@ -1758,30 +1799,57 @@ img {
 /* Large Desktop (> 1024px) */
 @media (min-width: 1025px) {
     .oval-frame {
-        width: 290px;
-        height: 420px;
+        width: 400px;
+        height: 560px;
+    }
+
+    .oval-inner{
+        padding: 40px 24px;
+    }
+
+    .monogram-text { 
+        font-size: 44px;
+        margin-bottom: 12px; 
+
+    }
+
+    .wedding-of {
+        font-size: 15px;
+        margin-bottom: 16px;
+        letter-spacing: 8px;
     }
 
     .name-bride, .name-groom {
-        font-size: 48px;
+        font-size: 82xp;
+        line-height: 1;
     }
 
+    .ampersand { 
+        font-size: 54px;
+        margin: 0;
+    }
+
+    .wedding-date {
+        font-size: 17px;
+        margin-top: 18px;
+    }
+        
     .section {
         padding: 70px 30px 50px;
     }
 
     .section-inner {
-        max-width: 480px;
+        max-width: 680px;
     }
 
     .section-title {
-        font-size: 54px;
+        font-size: 64px;
     }
 
     .photo-arch-border {
-        width: 300px;
-        height: 420px;
-        border-radius: 150px 150px 20px 20px;
+        width: 380px;
+        height: 520px;
+        border-radius: 190px 190px 20px 20px;
     }
 }
 
@@ -1816,4 +1884,50 @@ img {
     
     /* Animasi naik-turun tetap aktif dan mulus */
     animation: floralFloatGentle 4.5s ease-in-out infinite !important; 
+}
+
+/* ============================================================
+   VIDEO FULLSCREEN (REELS STYLE) & PENYESUAIAN LAYOUT
+   ============================================================ */
+#opening {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#opening .section-inner {
+    max-width: 100% !important;
+}
+
+/* Mengubah wadah video menjadi layar penuh (100vh) */
+#opening .video-container {
+    width: 100vw !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    margin: 0 0 40px 0 !important;
+    background: #000;
+}
+
+#opening .video-aspect-box {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important; /* Menghilangkan sudut melengkung */
+    border: none !important;
+    aspect-ratio: auto !important;
+}
+
+/* Membuat video mengisi seluruh layar */
+#opening .video-aspect-box video {
+    object-fit: cover !important; /* Catatan: Ganti jadi 'contain' jika video Anda banyak terpotong */
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Mengembalikan batas margin untuk elemen di bawah video agar tetap rapi di tengah */
+.quote-box, .countdown-container {
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
