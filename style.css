@@ -3,7 +3,7 @@
    Theme: Luxury Deep Burgundy / Maroon with Royal Floral Theme
    Reference: image-1346.jpeg
    ============================================================ */
-
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 /* ---------- CSS VARIABLES ---------- */
 :root {
     --bg-darkest: #12020a;
@@ -257,24 +257,20 @@ img {
 }
 
 /* ============================================================
-   COVER SECTION (REFERENSI: image-1346.jpeg)
+   COVER SECTION (TEMA IVORY & PLUM ENVELOPE)
    ============================================================ */
 .cover-section {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-    overflow-x: hidden;
-    background-image: url('../assets/images/bg-panggung.jpg'); /* Ganti dengan nama file gambar panggung 16:9 Anda */
+    background-image: url('../assets/images/Embossed Ivory Floral Vine Texture.png');
     background-size: cover;
-    background-position: center bottom;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     z-index: 1000;
     transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.9s ease;
 }
@@ -285,317 +281,112 @@ img {
     pointer-events: none;
 }
 
-/* --- ORNAMEN ATAS (TOP HEADER) ---
-   Membentang penuh 100% lebar layar dari batas paling atas,
-   sedikit menutupi/overlap bagian atas oval nama mempelai */
-.cover-floral-top {
-    position: absolute !important;
-    top: 0 !important; /* Pastikan nilainya 0, jangan negatif */
-    left: 0 !important;
-    width: 100vw !important;
-    z-index: 4 !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.cover-floral-top .floral-arch-img {
-    width: 100vw !important;
-    max-width: none !important; 
-    min-width: 100vw !important;
-    height: auto !important;
-    object-fit: contain !important;
-    transform-origin: top center !important;
-    animation: floralFloatTop 4.5s ease-in-out infinite !important;
-    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
-}
-
-@keyframes floralFloatTop {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(15px); }
-}
-
-/* --- CENTER CONTENT (OVAL + DEAR + BUTTON) --- */
-/* --- ORNAMEN SAMPING KIRI & KANAN (FLANKING OVAL) --- */
-.cover-floral-side-left {
-    position: absolute;
-    top: 24%;
-    left: -20px;
-    width: 42%;
-    max-width: 185px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.cover-floral-side-left .floral-side-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    image-rendering: high-quality !important;
-    image-rendering: -webkit-optimize-contrast !important;
-    animation: floralFloatLeft 4.8s ease-in-out infinite;
-    filter: drop-shadow(4px 4px 14px rgba(0, 0, 0, 0.45));
-}
-
-.cover-floral-side-right {
-    position: absolute;
-    top: 24%;
-    right: -20px;
-    width: 42%;
-    max-width: 185px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.cover-floral-side-right .floral-side-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    image-rendering: high-quality !important;
-    image-rendering: -webkit-optimize-contrast !important;
-    animation: floralFloatRight 4.8s ease-in-out infinite;
-    filter: drop-shadow(-4px 4px 14px rgba(0, 0, 0, 0.45));
-}
-
-.cover-content {
-    position: relative;
-    z-index: 3;
+.cover-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: 440px;
-    padding: 0 16px;
-    margin-top: 20vh !important;
-    margin-bottom: 0;
-}
-
-/* Oval Frame Wrapper & Frame */
-.oval-frame-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-.oval-frame {
-    width: min(270px, 72vw);
-    height: min(390px, 46vh);
-    border-radius: 50%;
-    background: linear-gradient(155deg, var(--cream-light) 0%, var(--cream) 55%, var(--cream-dark) 100%);
-    display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    box-shadow: 
-        0 12px 45px rgba(0, 0, 0, 0.55),
-        0 0 30px rgba(212, 175, 55, 0.2);
-    border: 2px solid rgba(212, 175, 55, 0.55);
-    animation: ovalGlowEffect 5s ease-in-out infinite;
-}
-
-.oval-frame::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border-radius: 50%;
-    border: 1px dashed rgba(166, 131, 30, 0.45);
-    pointer-events: none;
-}
-
-@keyframes ovalGlowEffect {
-    0%, 100% {
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(212, 175, 55, 0.18);
-    }
-    50% {
-        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.65), 0 0 40px rgba(212, 175, 55, 0.32);
-    }
-}
-
-.oval-inner {
-    padding: 22px 18px;
+    width: 90%;
+    max-width: 450px;
     text-align: center;
+}
+
+/* --- Judul & Nama --- */
+.cover-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
     width: 100%;
 }
 
-.monogram-text {
-    font-family: var(--font-script);
-    font-size: 30px;
-    color: var(--gold-dark);
-    margin-bottom: 2px;
-    letter-spacing: 2px;
+/* Pengaturan Teks Melengkung SVG */
+.curved-text {
+    width: 100%;
+    max-width: 240px; /* Ukuran lengkungan */
+    height: auto;
+    margin-bottom: -15px; /* Menarik nama agar lebih rapat ke atas */
+    overflow: visible;
 }
 
-.wedding-of {
-    font-family: var(--font-heading);
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: #6a4f32;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.couple-names {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1;
-}
-
-.name-bride, .name-groom {
-    font-family: var(--font-script);
-    font-size: 54px;
-    color: #2b0e1b;
-    font-weight: 400;
-    line-height: 0.95;
-}
-
-.ampersand {
-    font-family: var(--font-script);
-    font-size: 13px;
-    color: var(--gold-dark);
-    line-height: 1;
-    margin: -4px 0;
-}
-
-.wedding-date {
-    font-family: var(--font-heading);
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: #6a4f32;
-    margin-top: 8px;
-    font-weight: 600;
-}
-
-/* Action Group: Dear + Open Button */
-.cover-action-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    z-index: 5;
-}
-
-.dear-section {
-    text-align: center;
-}
-
-.dear-label {
+.curved-text text {
     font-family: var(--font-body);
-    font-style: italic;
-    font-size: 15px;
-    color: var(--rose-gold);
-    margin-bottom: 2px;
-}
-
-.guest-name {
-    font-family: var(--font-serif);
-    font-size: 21px;
-    font-weight: 700;
-    color: var(--text-white);
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
-/* Tombol OPEN INVITATION (Persis image-1346.jpeg: Glassmorphic Frosted Box) */
-.btn-open-wrapper {
-    margin-top: 2px;
-}
-
-.btn-open {
-    background: rgba(58, 18, 36, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    color: var(--text-cream);
-    padding: 12px 36px;
-    border-radius: 4px;
-    font-family: var(--font-heading);
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 19px;
+    fill: #5a3c58;
     font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
+    letter-spacing: 1px;
+}
+
+/* Pengaturan Tumpukan Nama */
+.couple-names-stack {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transition: all 0.4s ease;
-    animation: btnGentlePulse 3.5s ease-in-out infinite;
+    line-height: 0.85; /* Jarak antar nama dirapatkan */
 }
 
-.btn-open::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+.couple-names-stack .name {
+    /* Menggunakan font baru yang di-import di baris paling atas */
+    font-family: 'Berkshire Swash', serif; 
+    font-size: 64px;
+    color: #5a3c58;
+}
+
+.couple-names-stack .ampersand {
+    font-family: var(--font-script);
+    font-size: 32px;
+    color: #5a3c58;
+    margin: 5px 0; /* Jarak atas-bawah logo & */
+}
+
+/* --- Amplop --- */
+.envelope-btn {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: btnShimmer 3.5s infinite;
+    margin: 10px 0 30px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-@keyframes btnShimmer {
-    0% { left: -100%; }
-    40%, 100% { left: 100%; }
+.envelope-btn:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
 }
 
-@keyframes btnGentlePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.025); }
+.envelope-image {
+    width: 100%;
+    aspect-ratio: 1.8 / 1; /* Diubah agar rasio lebih pipih (memotong lebih banyak bagian atas/bawah) */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Di-zoom 5% untuk menutupi sisa garis hitam di pinggir */
 }
 
-.btn-open:hover {
-    background: rgba(78, 26, 50, 0.8);
-    border-color: rgba(212, 175, 55, 0.6);
-    color: var(--text-white);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.3);
+/* --- Info Tamu --- */
+.guest-info {
+    margin-top: 25px;
 }
 
-/* --- ORNAMEN BAWAH (FOOTER COVER) ---
-   Membentang penuh 100% lebar layar,
-   diletakkan menempel pada batas paling bawah */
-.cover-floral-bottom {
-    position: absolute !important;
-    bottom: -15px !important;
-    left: 0 !important;
-    width: 100vw !important;
-    display: flex !important; /* Wajib pakai flex agar bunga berjejer ke samping */
-    justify-content: center !important;
-    align-items: flex-end !important; /* Rata bawah layar */
-    z-index: 1 !important;
-    pointer-events: none;
-    margin: 0 !important;
-    padding: 0 !important;
+.guest-info .dear-label {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: #6d526b;
+    font-style: italic;
+    margin-bottom: 5px;
 }
 
-/* --- PENGATURAN UNTUK KE-4 GAMBAR BUNGA --- */
-.floral-item {
-    width: 55% !important; /* Naikkan nilainya dari 25% ke 35% atau 40% agar gambar membesar */
-    height: auto !important;
-    object-fit: contain !important;
-    transform-origin: bottom center !important;
-    margin: 0 -18% !important; /* Membuat bunga sedikit saling menumpuk agar lebih rapat */
-    animation: floralFloatBottom 4.8s ease-in-out infinite !important;
-    filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.5)) !important;
+.guest-info .guest-name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a3449;
 }
 
-/* --- JEDA ANIMASI AGAR BERGERAK BERGANTIAN --- */
-.floral-1 { animation-delay: 0s; }
-.floral-2 { animation-delay: 0.6s; }
-.floral-3 { animation-delay: 1.2s; }
-.floral-4 { animation-delay: 1.8s; }
-
-/* --- EFEK ANIMASI NAIK TURUN --- */
-@keyframes floralFloatBottom {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+/* --- RESPONSIVE UNTUK HP --- */
+@media (max-width: 768px) {
+    .couple-names-stack .name { font-size: 52px; }
+    .couple-names-stack .ampersand { font-size: 30px; margin: 4px 0; }
+    .envelope-btn { width: 95%; max-width: 350px; }
 }
 
 /* ============================================================
@@ -1648,243 +1439,59 @@ img {
 
 /* Tablet & iPad (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .oval-frame {
-        width: 360px;
-        height: 500px;
-    }
+    /* Penyesuaian Cover Baru */
+    .couple-names-text { font-size: 72px; }
+    .couple-names-text .ampersand { font-size: 46px; margin: -5px 0; }
+    .envelope-btn { max-width: 480px; }
 
-    .oval-inner {
-        padding: 30px 20px;
-    }
-
-    .monogram-text {
-         font-size: 38px; 
-         margin-bottom: 8px; 
-    }
-
-    .wedding-of { 
-        font-size: 13px; 
-        margin-bottom: 12px; 
-        letter-spacing: 6px; 
-    }
-
-    .wedding-date { 
-        font-size: 15px; 
-        margin-top: 14px; 
-    }
-
-    .ampersand{ 
-        font-size: 42px;
-        margin: -2px 0; 
-    }
-
-    .name-bride, .name-groom {
-        font-size: 68px; 
-        line-height: 1;
-    }
-
-    .section-inner {
-        max-width: 600px;
-    }
-
-    .section-title {
-        font-size: 58px;
-    }
-
-    .photo-arch-border {
-        width: 340px;
-        height: 460px;
-    }
+    /* Penyesuaian Main Content (Dipertahankan) */
+    .section-inner { max-width: 600px; }
+    .section-title { font-size: 58px; }
+    .photo-arch-border { width: 340px; height: 460px; }
 }
 
 /* Mobile Screens (max-width: 768px) */
 @media (max-width: 768px) {
-    .oval-frame {
-        width: min(270px, 72vw);
-        height: min(390px, 46vh);
-    }
+    /* Penyesuaian Cover Baru */
+    .cover-wrapper { padding: 15px; margin-top: -3vh; }
+    
+    .curved-text { max-width: 200px; margin-bottom: -10px; }
+    .couple-names-stack .name { font-size: 52px; }
+    .couple-names-stack .ampersand { font-size: 26px; margin: 4px 0; }
+    
+    .envelope-btn { width: 95%; max-width: 350px; margin-bottom: 25px; }
+    .guest-info .dear-label { font-size: 14px; }
+    .guest-info .guest-name { font-size: 20px; }
 
-    .monogram-text {
-        font-size: 15px !important;
-        margin-top: 5px !important;
-    }
-
-    .wedding-of {
-        margin-bottom: 15px !important;
-    }
-
-    .name-bride, .name-groom { 
-        font-size: 50px;
-        margin-bottom: 10px !important;  
-    }
-
-    .ampersand { 
-        font-size: 36px;
-        margin-bottom: 7px !important;
-    }
-
-    .section {
-        padding: 45px 16px 35px;
-    }
-
-    .section-title {
-        font-size: 44px;
-    }
-
-    .btn-open {
-        padding: 12px 32px;
-        font-size: 11px;
-    }
+    /* Penyesuaian Main Content (Dipertahankan) */
+    .section { padding: 45px 16px 35px; }
+    .section-title { font-size: 44px; }
 }
 
-/* Short Mobile Devices (height <= 700px) */
+/* Short Mobile Devices (max-height: 700px) */
 @media (max-height: 700px) {
-    .oval-frame-wrapper {
-        margin-top: 5px;
-        margin-bottom: 8px;
-    }
-
-    .oval-frame {
-        width: 220px;
-        height: 310px;
-    }
-
-    .oval-inner {
-        padding: 16px 12px;
-    }
-
-    .monogram-text {
-        font-size: 22px;
-        margin-bottom: 2px;
-    }
-
-    .wedding-of {
-        font-size: 9px;
-        letter-spacing: 4px;
-        margin-bottom: 4px;
-    }
-
-    .name-bride, .name-groom {
-        font-size: 42px;
-    }
-
-    .ampersand {
-        font-size: 30px;
-    }
-
-    .wedding-date {
-        font-size: 11px;
-        margin-top: 4px;
-    }
-
-    .cover-action-group {
-        gap: 8px;
-    }
-
-    .dear-label {
-        font-size: 13px;
-    }
-
-    .guest-name {
-        font-size: 18px;
-    }
-
-    .btn-open {
-        padding: 9px 24px;
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
+    /* Penyesuaian Cover Baru agar tidak terpotong di layar pendek */
+    .cover-wrapper { margin-top: 0; padding-top: 10px; }
+    .cover-title { margin-bottom: 15px; }
+    .couple-names-text { font-size: 40px; }
+    .envelope-btn { max-width: 300px; margin-bottom: 15px; }
+    .guest-info .guest-name { font-size: 18px; }
 }
 
 /* Large Desktop (> 1024px) */
 @media (min-width: 1025px) {
-    .oval-frame {
-        width: 400px;
-        height: 560px;
-    }
-
-    .oval-inner{
-        padding: 40px 24px;
-    }
-
-    .monogram-text { 
-        font-size: 44px;
-        margin-bottom: 12px; 
-
-    }
-
-    .wedding-of {
-        font-size: 15px;
-        margin-bottom: 16px;
-        letter-spacing: 8px;
-    }
-
-    .name-bride, .name-groom {
-        font-size: 82xp;
-        line-height: 1;
-    }
-
-    .ampersand { 
-        font-size: 54px;
-        margin: 0;
-    }
-
-    .wedding-date {
-        font-size: 17px;
-        margin-top: 18px;
-    }
+    /* Penyesuaian Cover Baru */
+    .couple-names-text { font-size: 82px; }
+    .couple-names-text .ampersand { font-size: 54px; margin: 0; }
+    .envelope-btn { max-width: 500px; }
         
-    .section {
-        padding: 70px 30px 50px;
-    }
-
-    .section-inner {
-        max-width: 680px;
-    }
-
-    .section-title {
-        font-size: 64px;
-    }
-
-    .photo-arch-border {
-        width: 380px;
-        height: 520px;
-        border-radius: 190px 190px 20px 20px;
-    }
+    /* Penyesuaian Main Content (Dipertahankan) */
+    .section { padding: 70px 30px 50px; }
+    .section-inner { max-width: 680px; }
+    .section-title { font-size: 64px; }
+    .photo-arch-border { width: 380px; height: 520px; border-radius: 190px 190px 20px 20px; }
 }
 
-/* ============================================================
-   PERBAIKAN JARAK SECTION & ORNAMEN PEMBATAS (BERSIH & PRESISI)
-   ============================================================ */
-
-/* Mengurangi jarak bawaan section di atas dan di bawah ornamen */
-.section {
-    padding-top: 35px !important;
-    padding-bottom: 35px !important;
-}
-
-/* Pembungkus ornamen pembatas */
-.section-floral-divider {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 15px 0 10px 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    overflow: hidden !important; /* Mencegah elemen keluar batas layar / scroll ganda */
-}
-
-.floral-garland-decor {
-    width: 90% !important;
-    max-width: 460px !important;
-    height: auto !important;
-    object-fit: contain !important;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
-    
-    /* Animasi naik-turun tetap aktif dan mulus */
-    animation: floralFloatGentle 4.5s ease-in-out infinite !important; 
-}
 
 /* ============================================================
    VIDEO FULLSCREEN (REELS STYLE) & PENYESUAIAN LAYOUT
