@@ -24,61 +24,38 @@
         <source src="assets/audio/bgm.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ====== COVER SECTION (REFERENSI: image-1346.jpeg) ====== -->
+    <!-- ====== COVER SECTION ====== -->
     <section id="cover" class="cover-section">
-        <!-- Floating falling petals effect -->
-        <div class="floating-petals" id="floatingPetals"></div>
+        <div class="cover-wrapper">
+            <!-- Bagian Judul -->
+            <div class="cover-title">
+                <!-- Teks "The Wedding of" Melengkung -->
+                <svg viewBox="0 0 300 70" class="curved-text">
+                    <path id="text-curve" fill="transparent" d="M 20,60 C 100,10 200,10 280,60" />
+                    <text>
+                        <textPath href="#text-curve" startOffset="50%" text-anchor="middle">
+                            The Wedding of
+                        </textPath>
+                    </text>
+                </svg>
 
-        <!-- Ornamen Atas: Full width 100%, menjuntai dari batas paling atas, sedikit menutupi/overlap atas oval -->
-        <div class="cover-floral-top">
-            <img src="assets/images/cover-top-arch.png" alt="Ornamen Bunga Atas" class="floral-arch-img">
-        </div>
-
-        <!-- Ornamen Samping Kiri & Kanan (Flanking Oval Sesuai Foto) -->
-        <div class="cover-floral-side-left">
-            <img src="assets/images/cover-side-bouquet.png" alt="Ornamen Samping Kiri" class="floral-side-img">
-        </div>
-        <div class="cover-floral-side-right">
-            <img src="assets/images/cover-side-bouquet.png" alt="Ornamen Samping Kanan" class="floral-side-img flipped-x">
-        </div>
-
-        <!-- Cover Center Content: Oval Frame + Greeting + Button -->
-        <div class="cover-content">
-            <div class="oval-frame-wrapper">
-                <div class="oval-frame">
-                    <div class="oval-inner">
-                        <div class="monogram-text">N &amp; F</div>
-                        <p class="wedding-of">THE WEDDING OF</p>
-                        <h1 class="couple-names">
-                            <span class="name-bride">Nanda</span>
-                            <span class="ampersand">&amp;</span>
-                            <span class="name-groom">Fajar</span>
-                        </h1>
-                        <p class="wedding-date">29 . 11 . 26</p>
-                    </div>
+                <div class="couple-names-stack">
+                    <span class="name">NANDA</span>
+                    <span class="ampersand">&amp;</span>
+                    <span class="name">FAJAR</span>
                 </div>
             </div>
 
-            <div class="cover-action-group">
-                <div class="dear-section">
-                    <p class="dear-label">kpd Bapak/Ibu/Saudara/i :</p>
-                    <p class="guest-name" id="guestName">Tamu Undangan</p>
-                </div>
-
-                <div class="btn-open-wrapper">
-                    <button id="openBtn" class="btn-open">
-                        <span>OPEN INVITATION</span>
-                    </button>
-                </div>
+            <!-- Amplop (Tombol Buka) -->
+            <div class="envelope-btn" id="openBtn">
+                <img src="assets/images/Untitled design.png" alt="Tap to Open" class="envelope-image">
             </div>
-        </div>
 
-        <!-- Ornamen Bawah: Full width 100%, menempel persis di dasar layar -->
-        <div class="cover-floral-bottom">
-            <img src="assets/images/8.png" alt="Bunga Kiri Luar" class="floral-item floral-1">
-            <img src="assets/images/7.png" alt="Bunga Kiri Tengah" class="floral-item floral-2">
-            <img src="assets/images/6.png" alt="Bunga Kanan Tengah" class="floral-item floral-3">
-            <img src="assets/images/9.png" alt="Bunga Kanan Luar" class="floral-item floral-4">
+            <!-- Informasi Tamu -->
+            <div class="guest-info">
+                <p class="dear-label">kpd Bapak/Ibu/Saudara/i :</p>
+                <p class="guest-name" id="guestName">Tamu Undangan</p>
+            </div>
         </div>
     </section>
 
@@ -92,7 +69,7 @@
                 <!-- 9:16 Portrait Video Opening -->
                 <div class="video-container animate-on-scroll">
                     <div class="video-aspect-box">
-                        <video id="openingVideo" playsinline muted loop poster="assets/images/couple.jpg">
+                        <video id="openingVideo" controls playsinline muted poster="assets/images/couple.jpg">
                             <source src="assets/video/opening.mp4" type="video/mp4">
                             Browser Anda tidak mendukung video.
                         </video>
