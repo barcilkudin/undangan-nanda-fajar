@@ -303,15 +303,15 @@ img {
 /* Pengaturan Teks Melengkung SVG */
 .curved-text {
     width: 100%;
-    max-width: 240px; /* Ukuran lengkungan */
+    max-width: 280px; /* Ukuran lengkungan */
     height: auto;
-    margin-bottom: -15px; /* Menarik nama agar lebih rapat ke atas */
+    margin-bottom: -5px !important; /* Menarik nama agar lebih rapat ke atas */
     overflow: visible;
 }
 
 .curved-text text {
     font-family: var(--font-body);
-    font-size: 19px;
+    font-size: 25px;
     fill: #5a3c58;
     font-weight: 600;
     letter-spacing: 1px;
@@ -322,21 +322,45 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    line-height: 0.85; /* Jarak antar nama dirapatkan */
+    justify-content: center;
+    
+    /* Gunakan line-height ini untuk mengatur seberapa rapat "Nanda" dan "Fajar" */
+    line-height: 1; 
+    
+    position: relative; /* Kunci agar simbol & tidak melenceng keluar */
+    z-index: 2;
 }
 
 .couple-names-stack .name {
-    /* Menggunakan font baru yang di-import di baris paling atas */
-    font-family: 'Berkshire Swash', serif; 
-    font-size: 64px;
-    color: #5a3c58;
+    font-family: 'Great Vibes', cursive; 
+    font-size: 76px; /* Bisa diperbesar/diperkecil sesuai selera */
+    color: #46142c; 
+    margin: 0; 
+    position: relative;
+    z-index: 2; /* Memastikan teks nama selalu di depan simbol & */
 }
 
+.couple-names-stack .name:last-child {
+    transform: translateX(20px); /* Tambahkan nilai ini (cth: 80px) jika mahu lebih ke kanan */
+}
+
+/* KUNCI PERBAIKAN: Posisi & dibuat mutlak (absolute) */
 .couple-names-stack .ampersand {
-    font-family: var(--font-script);
-    font-size: 32px;
-    color: #5a3c58;
-    margin: 5px 0; /* Jarak atas-bawah logo & */
+    font-family: 'Playfair Display', serif;
+    font-size: 60px !important; /* Ukuran & sedikit diperbesar */
+    color: #a8a099; 
+    
+    /* Melepaskan & dari tumpukan flexbox agar melayang bebas */
+    position: absolute; 
+    
+    /* Atur titik kordinat ini untuk menggeser & secara presisi: */
+    top: 60%; /* Mengatur naik-turun. Kurangi (misal 45%) untuk menaikkan */
+    left: -15%; /* Mengatur kiri-kanan. Perbesar (misal 35%) untuk menggeser ke kanan */
+    
+    /* Penyeimbang titik tengah */
+    transform: translateY(-50%); 
+    
+    z-index: 1; /* Memastikan & berada di belakang nama */
 }
 
 /* --- Amplop --- */
