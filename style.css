@@ -345,11 +345,13 @@ img {
     margin: 10px 0 30px 0;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
+    animation: heartbeatEnvelope 2s infinite ease-in-out;
 }
 
 .envelope-btn:hover {
     transform: scale(1.03);
     filter: brightness(1.05);
+    animation-play-state: paused;
 }
 
 .envelope-image {
@@ -360,6 +362,28 @@ img {
     border-radius: 6px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transform: scale(1.05); /* Di-zoom 5% untuk menutupi sisa garis hitam di pinggir */
+}
+
+/* Animasi detak jantung untuk amplop */
+@keyframes heartbeatEnvelope {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.04);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.04);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* --- Info Tamu --- */
