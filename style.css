@@ -1,33 +1,33 @@
 /* ============================================================
    THE WEDDING OF NANDA & FAJAR
-   Theme: Luxury Deep Burgundy / Maroon with Royal Floral Theme
+    Theme: Soft Pink and Purple Wedding Theme
    Reference: image-1346.jpeg
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 /* ---------- CSS VARIABLES ---------- */
 :root {
-    --bg-darkest: #12020a;
-    --bg-dark: #240c16;
-    --bg-maroon: #341221;
-    --bg-card: rgba(52, 18, 33, 0.7);
-    --cream-light: #fefcf7;
-    --cream: #f4ecdc;
-    --cream-dark: #e8dcbf;
-    --gold: #d4af37;
-    --gold-light: #f3e096;
-    --gold-dark: #a6831e;
-    --text-white: #ffffff;
-    --text-cream: #f5eedf;
-    --text-muted: #c9b1bd;
-    --rose-gold: #c98a97;
+    --bg-darkest: #fffafd;
+    --bg-dark: #fff3f8;
+    --bg-maroon: #f8e6f0;
+    --bg-card: rgba(255, 255, 255, 0.82);
+    --cream-light: #fffefe;
+    --cream: #684875;
+    --cream-dark: #84658d;
+    --gold: #805a91;
+    --gold-light: #a986b5;
+    --gold-dark: #654475;
+    --text-white: #5b3b68;
+    --text-cream: #684875;
+    --text-muted: #866f8b;
+    --rose-gold: #997aa0;
     
     --font-script: 'Great Vibes', cursive;
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-heading: 'Cinzel', serif;
     --font-body: 'Cormorant Garamond', Garamond, serif;
     
-    --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
-    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-gold: 0 4px 20px rgba(128, 90, 145, 0.18);
+    --shadow-card: 0 10px 30px rgba(104, 72, 117, 0.12);
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -136,7 +136,7 @@ img {
     position: absolute;
     width: 12px;
     height: 12px;
-    background: radial-gradient(ellipse at center, rgba(201, 138, 151, 0.7) 0%, rgba(130, 40, 65, 0.2) 100%);
+    background: radial-gradient(ellipse at center, rgba(236, 190, 213, 0.7) 0%, rgba(207, 159, 211, 0.2) 100%);
     border-radius: 50% 0 50% 0;
     animation: petalFalling linear infinite;
     opacity: 0;
@@ -171,7 +171,7 @@ img {
     height: 44px;
     border-radius: 50%;
     border: 1.5px solid var(--gold);
-    background: rgba(36, 12, 22, 0.88);
+    background: rgba(255, 243, 248, 0.94);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--gold);
@@ -312,7 +312,7 @@ img {
 .curved-text text {
     font-family: var(--font-body);
     font-size: 25px;
-    fill: #5a3c58;
+    fill: #684875;
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -334,7 +334,7 @@ img {
 .couple-names-stack .name {
     font-family: 'Great Vibes', cursive; 
     font-size: 76px; /* Bisa diperbesar/diperkecil sesuai selera */
-    color: #46142c; 
+    color: #684875;
     margin: 0; 
     position: relative;
     z-index: 2; /* Memastikan teks nama selalu di depan simbol & */
@@ -348,7 +348,7 @@ img {
 .couple-names-stack .ampersand {
     font-family: 'Playfair Display', serif;
     font-size: 60px !important; /* Ukuran & sedikit diperbesar */
-    color: #a8a099; 
+    color: #997aa0;
     
     /* Melepaskan & dari tumpukan flexbox agar melayang bebas */
     position: absolute; 
@@ -418,7 +418,7 @@ img {
 .guest-info .dear-label {
     font-family: var(--font-body);
     font-size: 18px !important;
-    color: #6d526b;
+    color: #866f8b;
     font-style: italic;
     margin-bottom: 5px;
 }
@@ -427,7 +427,7 @@ img {
     font-family: var(--font-serif);
     font-size: 22px;
     font-weight: bold;
-    color: #4a3449;
+    color: #684875;
 }
 
 /* --- RESPONSIVE UNTUK HP --- */
@@ -653,7 +653,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(46, 16, 29, 0.6);
+    background: rgba(255, 243, 248, 0.82);
     border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 14px;
     padding: 14px 10px;
@@ -794,8 +794,92 @@ img {
     background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darkest) 50%, var(--bg-dark) 100%);
 }
 
+/* ============================================================
+   DRESS CODE
+   ============================================================ */
+.dresscode {
+    background: linear-gradient(180deg, #fff1f6 0%, #fffafd 100%);
+    padding-top: 54px;
+}
+
+.dresscode-inner {
+    max-width: 460px;
+}
+
+.dresscode-frame {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 22px 16px;
+    text-align: center;
+}
+
+.dresscode-frame::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0 4% 16px;
+    border: 1px solid rgba(128, 90, 145, 0.24);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+    pointer-events: none;
+}
+
+.dresscode-title {
+    font-family: var(--font-script);
+    font-size: 58px;
+    line-height: 1.15;
+    color: #684875;
+    margin-bottom: 18px;
+}
+
+.dresscode-copy {
+    max-width: 330px;
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.45;
+    color: #684875;
+}
+
+.dresscode-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 30px 0 12px;
+}
+
+.dresscode-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 76px;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--text-cream);
+}
+
+.swatch-color {
+    width: 62px;
+    height: 62px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
+    box-shadow: 0 5px 12px rgba(104, 72, 117, 0.22);
+}
+
+.swatch-pink {
+    background: linear-gradient(145deg, #f8c7d9, #d982a6);
+}
+
+.swatch-purple {
+    background: linear-gradient(145deg, #b99acb, #684875);
+}
+
 .event-card {
-    background: rgba(52, 18, 33, 0.6);
+    background: rgba(255, 243, 248, 0.82);
     border: 1.5px solid rgba(212, 175, 55, 0.25);
     border-radius: 18px;
     padding: 30px 24px;
@@ -929,7 +1013,7 @@ img {
 .family-card {
     text-align: center;
     padding: 18px 20px;
-    background: rgba(36, 12, 22, 0.6);
+    background: rgba(255, 243, 248, 0.82);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 14px;
     transition: all 0.3s ease;
@@ -937,7 +1021,7 @@ img {
 
 .family-card:hover {
     border-color: rgba(212, 175, 55, 0.4);
-    background: rgba(36, 12, 22, 0.85);
+    background: rgba(255, 243, 248, 0.96);
 }
 
 .family-name {
@@ -973,7 +1057,7 @@ img {
 }
 
 .bank-card {
-    background: linear-gradient(135deg, rgba(60, 20, 38, 0.75) 0%, rgba(30, 8, 18, 0.85) 100%);
+    background: linear-gradient(135deg, rgba(255, 243, 248, 0.88) 0%, rgba(248, 230, 240, 0.94) 100%);
     border: 1.5px solid rgba(212, 175, 55, 0.3);
     border-radius: 18px;
     padding: 26px 22px;
@@ -1020,7 +1104,7 @@ img {
     font-family: var(--font-heading);
     font-size: 22px;
     letter-spacing: 4px;
-    color: var(--cream-light);
+    color: var(--text-muted);
     margin-bottom: 4px;
 }
 
@@ -1194,7 +1278,7 @@ img {
 }
 
 .message-item {
-    background: rgba(52, 18, 33, 0.6);
+    background: rgba(255, 243, 248, 0.82);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 14px;
     padding: 16px 18px;
@@ -1295,10 +1379,47 @@ img {
 .footer-photo-frame {
     display: flex;
     justify-content: center;
-    margin-bottom: 28px;
+    position: relative;
+    isolation: isolate;
+    width: fit-content;
+    padding: 10px;
+    margin: 0 auto 28px;
+}
+
+.footer-photo-frame::before,
+.footer-photo-frame::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50% 50% 18px 18px / 36% 36% 18px 18px;
+}
+
+.footer-photo-frame::before {
+    inset: 4px;
+    border: 1.5px solid rgba(128, 90, 145, 0.42);
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+.footer-photo-frame::after {
+    inset: -3px;
+    border: 1px dashed rgba(169, 134, 181, 0.55);
+    animation: footerArchGlow 4s ease-in-out infinite;
+}
+
+@keyframes footerArchGlow {
+    0%, 100% {
+        opacity: 0.45;
+        box-shadow: 0 0 4px rgba(128, 90, 145, 0.08);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 14px rgba(128, 90, 145, 0.24);
+    }
 }
 
 .photo-arch-border {
+    position: relative;
+    z-index: 1;
     width: 260px;
     height: 360px;
     border-radius: 130px 130px 18px 18px;
@@ -1390,7 +1511,7 @@ img {
     justify-content: space-around;
     align-items: center;
     padding: 10px 0 14px 0;
-    background: rgba(22, 5, 12, 0.85);
+    background: rgba(255, 243, 248, 0.96);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -1459,7 +1580,7 @@ img {
     bottom: 85px;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: rgba(36, 12, 22, 0.95);
+    background: rgba(255, 243, 248, 0.98);
     border: 1px solid var(--gold);
     color: var(--gold-light);
     padding: 12px 24px;
