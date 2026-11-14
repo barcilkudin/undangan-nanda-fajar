@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Wedding of Nanda & Fajar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,14 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
 </head>
 <body>
+    <!-- Ornamen SVG (dipakai berulang lewat <use>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+        <symbol id="flower" viewBox="-20 -20 40 40"><g fill="currentColor"><ellipse cy="-9" rx="5.5" ry="9"/><ellipse cy="-9" rx="5.5" ry="9" transform="rotate(72)"/><ellipse cy="-9" rx="5.5" ry="9" transform="rotate(144)"/><ellipse cy="-9" rx="5.5" ry="9" transform="rotate(216)"/><ellipse cy="-9" rx="5.5" ry="9" transform="rotate(288)"/></g><circle r="3.2" fill="#fff3f8"/></symbol>
+        <symbol id="sprig" viewBox="0 0 220 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+            <path d="M12 22C45 8 78 8 96 20M208 22C175 8 142 8 124 20" opacity=".7"/>
+            <g fill="currentColor" stroke="none" opacity=".55"><ellipse cx="40" cy="12" rx="9" ry="3.6" transform="rotate(-25 40 12)"/><ellipse cx="62" cy="10" rx="8" ry="3.2" transform="rotate(-8 62 10)"/><ellipse cx="180" cy="12" rx="9" ry="3.6" transform="rotate(25 180 12)"/><ellipse cx="158" cy="10" rx="8" ry="3.2" transform="rotate(8 158 10)"/></g>
+            <use href="#flower" x="94" y="4" width="32" height="32" stroke="none"/>
+        </symbol></defs></svg>
 
     <!-- ====== MUSIC TOGGLE BUTTON (HIDDEN INITIALLY ON COVER) ====== -->
     <button id="musicToggle" class="music-toggle paused" aria-label="Toggle Musik" title="Putar / Jeda Musik">
@@ -88,6 +96,15 @@
                     <div class="ornament-divider-line"></div>
                 </div>
 
+                <!-- Save the Date -->
+                <div class="date-plaque animate-on-scroll">
+                    <p class="dp-lead">Save the Date</p>
+                    <div class="dp-wreath">
+                        <img src="assets/images/frame-wreath.webp" alt="" aria-hidden="true">
+                        <div class="dp-core"><span>Minggu</span><strong>29</strong><span>Nov 2026</span></div>
+                    </div>
+                </div>
+
                 <!-- Countdown Timer -->
                 <div class="countdown-container animate-on-scroll">
                     <h3 class="countdown-heading">Menuju Hari Bahagia</h3>
@@ -117,9 +134,11 @@
         <section id="mempelai" class="section mempelai" data-section="mempelai">
             
             <div class="section-inner">
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <h2 class="section-title animate-on-scroll">Bride &amp; Groom</h2>
                 <div class="ornament-subtitle animate-on-scroll">✦ Pasangan Mempelai ✦</div>
 
+                <p class="salam animate-on-scroll">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
                 <p class="mempelai-intro animate-on-scroll">
                     Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan putra-putri kami:
                 </p>
@@ -161,8 +180,10 @@
 
         <!-- ====== WEDDING DAY (DETAIL ACARA) ====== -->
         <section id="acara" class="section acara" data-section="acara">
+            <img class="deco deco-bouquet" src="assets/images/bunga-sudut.webp" alt="" aria-hidden="true" loading="lazy">
 
             <div class="section-inner">
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <h2 class="section-title animate-on-scroll">Wedding Day</h2>
                 <div class="ornament-subtitle animate-on-scroll">✦ Waktu &amp; Lokasi Acara ✦</div>
 
@@ -184,7 +205,7 @@
                         </div>
                         <div class="event-row">
                             <i class="fas fa-location-dot"></i>
-                            <span>JL. Siliwangi - Kodim (Bundaran Kepuh), Nagasari, Karawang Barat</span>
+                              <span><strong class="venue">Gedung Serbaguna Al-Madinah</strong>JL. Siliwangi - Kodim (Bundaran Kepuh), Nagasari, Karawang Barat</span>
                         </div>
                     </div>
                 </div>
@@ -211,7 +232,7 @@
                         </div>
                         <div class="event-row">
                             <i class="fas fa-location-dot"></i>
-                            <span>JL. Siliwangi - Kodim (Bundaran Kepuh), Nagasari, Karawang Barat</span>
+                            <span><strong class="venue">Gedung Serbaguna Al-Madinah</strong>JL. Siliwangi - Kodim (Bundaran Kepuh), Nagasari, Karawang Barat</span>
                         </div>
                     </div>
                 </div>
@@ -222,12 +243,17 @@
                         <i class="fas fa-map-location-dot"></i>
                         <span>Buka Google Maps</span>
                     </a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Pernikahan+Nanda+%26+Fajar&amp;dates=20261129T030000Z/20261129T080000Z&amp;details=Akad+Nikah+10.00+WIB.+Resepsi+13.00-15.00+WIB.&amp;location=JL.+Siliwangi+-+Kodim+(Bundaran+Kepuh),+Nagasari,+Karawang+Barat" target="_blank" rel="noopener noreferrer" class="btn-maps btn-cal">
+                        <i class="far fa-calendar-plus"></i>
+                        <span>Simpan ke Kalender</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- ====== DRESS CODE ====== -->
         <section id="dresscode" class="section dresscode" data-section="dresscode">
+            <img class="deco deco-kupu" src="assets/images/kupu.gif" alt="" aria-hidden="true" loading="lazy">
             <div class="section-inner dresscode-inner">
                 <div class="dresscode-frame">
                     <h2 class="dresscode-title animate-on-scroll">Dresscode</h2>
@@ -252,12 +278,13 @@
         <!-- ====== TURUT MENGUNDANG ====== -->
         <section id="keluarga" class="section keluarga" data-section="keluarga">
             <div class="section-inner">
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <h2 class="section-title animate-on-scroll">Turut Mengundang</h2>
                 <div class="ornament-subtitle animate-on-scroll">✦ Keluarga Besar ✦</div>
 
                 <div class="family-grid animate-on-scroll">
                     <div class="family-card">
-                        <p class="family-relation">Keluarga Besar<p>
+                        <p class="family-relation">Keluarga Besar</p>
                         <p class="family-name">Bapak Suhendra</p>
                     </div>
                     <div class="family-card">
@@ -280,12 +307,15 @@
                         <p class="family-name"> Para Simpatisan</p>
                     </div>
                 </div>
+                <img class="deco-flow" src="assets/images/bunga-peony.webp" alt="" aria-hidden="true" loading="lazy">
             </div>
         </section>
 
         <!-- ====== WEDDING GIFT ====== -->
         <section id="gift" class="section gift" data-section="gift">
+            <img class="deco deco-bouquet r" src="assets/images/bunga-sudut.webp" alt="" aria-hidden="true" loading="lazy">
             <div class="section-inner">
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <h2 class="section-title animate-on-scroll">Wedding Gift</h2>
                 <div class="ornament-subtitle animate-on-scroll">✦ Tanda Kasih ✦</div>
                 
@@ -300,8 +330,8 @@
                         <i class="fas fa-credit-card bank-icon"></i>
                     </div>
                     <div class="bank-account-num">089529603751</div>
-                    <div class="bank-holder">a/n fajar iriyanto</div>
-                    <button class="btn-copy" data-copy="2029101967">
+                    <div class="bank-holder">a/n Fajar Iriyanto</div>
+                    <button class="btn-copy" data-copy="089529603751">
                         <i class="far fa-copy"></i>
                         <span>Salin No. Rekening</span>
                     </button>
@@ -339,7 +369,9 @@
 
         <!-- ====== RSVP & UCAPAN ====== -->
         <section id="rsvp" class="section rsvp" data-section="rsvp">
+            <img class="deco deco-bouquet" src="assets/images/bunga-sudut.webp" alt="" aria-hidden="true" loading="lazy">
             <div class="section-inner">
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <h2 class="section-title animate-on-scroll">RSVP &amp; Ucapan</h2>
                 <div class="ornament-subtitle animate-on-scroll">✦ Doa &amp; Konfirmasi Kehadiran ✦</div>
 
@@ -386,12 +418,15 @@
                     </div>
                 </div>
 
+                <svg class="sprig animate-on-scroll" aria-hidden="true"><use href="#sprig"/></svg>
                 <p class="footer-salam animate-on-scroll">Dengan salam cinta,</p>
                 <h2 class="footer-names animate-on-scroll">Nanda &amp; Fajar</h2>
                 
                 <p class="footer-closing-text animate-on-scroll">
                     Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
                 </p>
+
+                <p class="salam animate-on-scroll">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
 
                 <div class="footer-divider-line animate-on-scroll"></div>
 
