@@ -1843,7 +1843,7 @@ img {
 .deco-bouquet { width: 98px; top: -4px; left: -10px; }
 .deco-bouquet.r { left: auto; right: -10px; transform: scaleX(-1); }
 .deco-kupu { width: 100px; right: 16px; bottom: 0; }
-.deco-flow { display: block; width: 150px; height: auto; margin: 26px auto 0; pointer-events: none; }
+.deco-flow { display: block; width: 150px; height: auto; margin: 26px auto 0; pointer-events: none; animation: floralFloatGentle 4.5s ease-in-out infinite; }
 @media (min-width: 1025px) { .deco-bouquet { width: 190px; } .deco-kupu { width: 130px; } }
 
 /* Save the Date di dalam karangan lavender */
