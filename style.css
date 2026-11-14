@@ -1707,3 +1707,161 @@ img {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+
+/* ============================================================
+   ENHANCEMENT LAYER — ornamen, kartu, tombol, navigasi
+   (ditaruh paling bawah supaya menimpa gaya lama)
+   ============================================================ */
+:root {
+    --plum: #684875;
+    --rose: #d982a6;
+    --blush: #f8c7d9;
+    --hair: rgba(128, 90, 145, 0.22);
+    --lift: 0 16px 36px -14px rgba(104, 72, 117, 0.32);
+    --flower: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 40 40'%3E%3Cg fill='%23d982a6'%3E%3Cellipse cy='-9' rx='5.5' ry='9'/%3E%3Cellipse cy='-9' rx='5.5' ry='9' transform='rotate(72)'/%3E%3Cellipse cy='-9' rx='5.5' ry='9' transform='rotate(144)'/%3E%3Cellipse cy='-9' rx='5.5' ry='9' transform='rotate(216)'/%3E%3Cellipse cy='-9' rx='5.5' ry='9' transform='rotate(288)'/%3E%3C/g%3E%3Ccircle r='3.2' fill='%23fff3f8'/%3E%3C/svg%3E");
+}
+
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Latar tiap section: cahaya blush + lavender di sudut */
+.section::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+        radial-gradient(70% 26% at 8% 0%, rgba(248, 199, 217, .5), transparent 70%),
+        radial-gradient(70% 26% at 96% 100%, rgba(185, 154, 203, .3), transparent 70%);
+}
+.main-content { padding-bottom: 0; }
+.footer-section { padding-bottom: 130px; }
+
+/* Judul section + ornamen bunga */
+.sprig { display: block; width: 190px; height: 34px; margin: 0 auto 2px; color: var(--rose); }
+.section-title { color: var(--plum); text-shadow: none; }
+.ornament-subtitle { color: var(--rose-gold); opacity: 1; }
+.salam { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--plum); text-align: center; margin: 0 auto 14px; }
+.quran-bismillah { color: var(--plum); font-size: 28px; }
+.quran-ref { color: var(--rose-gold); }
+
+/* Plakat tanggal */
+.date-plaque { text-align: center; margin: 0 auto 36px; max-width: 340px; padding: 18px 10px; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.dp-lead { font-family: var(--font-script); font-size: 34px; color: var(--rose); line-height: 1.1; }
+.dp-row { display: flex; align-items: center; justify-content: center; gap: 22px; font-family: var(--font-heading); font-size: 13px; letter-spacing: 2px; color: var(--plum); }
+.dp-row span { flex: 1; }
+.dp-row strong { font-family: var(--font-serif); font-size: 72px; font-weight: 700; line-height: 1; padding: 0 22px; border-left: 1px solid var(--hair); border-right: 1px solid var(--hair); }
+.dp-month { font-family: var(--font-heading); font-size: 14px; letter-spacing: 6px; color: var(--rose-gold); margin-top: 6px; }
+
+/* Permukaan kartu seragam */
+.event-card, .bank-card, .family-card, .countdown-item, .message-item {
+    background: linear-gradient(160deg, #fff 0%, #fff3f8 100%);
+    border: 1px solid var(--hair);
+    box-shadow: var(--lift);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.countdown-item { border-bottom: 3px solid var(--blush); }
+.countdown-number { color: var(--plum); }
+
+/* Countdown / acara */
+.event-card { position: relative; }
+.event-card::before { content: ''; position: absolute; inset: 7px; border: 1px solid var(--hair); border-radius: 13px; pointer-events: none; }
+.event-icon-box { background: #fff; border: 1.5px solid var(--rose); color: var(--rose); box-shadow: 0 0 0 5px rgba(248, 199, 217, .35); }
+.event-type { color: var(--plum); }
+.event-divider-line { background: var(--rose); opacity: .5; }
+.event-row i { color: var(--rose); }
+.event-row.highlight-time { color: var(--plum); }
+.gold-diamond { color: var(--rose); }
+
+/* Tombol maps + kalender */
+.maps-action { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn-maps { background: #fff; border: 1.5px solid var(--gold); color: var(--plum); box-shadow: var(--lift); }
+.btn-maps:hover { background: var(--bg-maroon); color: var(--plum); box-shadow: var(--lift); }
+.btn-cal { background: linear-gradient(135deg, #805a91, #654475); border-color: transparent; color: #fff; }
+.btn-cal:hover { background: linear-gradient(135deg, #9370a3, #805a91); color: #fff; }
+
+/* Foto mempelai */
+.photo-glow-ring { border-color: rgba(217, 130, 166, .6); }
+.photo-glow-ring::after { border-color: rgba(217, 130, 166, .4); }
+.profile-photo { border: 4px solid #fff; box-shadow: 0 0 0 1.5px var(--rose-gold), var(--lift); }
+.profile-photo-wrapper::before, .profile-photo-wrapper::after { content: ''; position: absolute; z-index: 3; background: var(--flower) center / contain no-repeat; pointer-events: none; }
+.profile-photo-wrapper::before { width: 46px; height: 46px; top: -10px; left: -14px; transform: rotate(-15deg); }
+.profile-photo-wrapper::after { width: 34px; height: 34px; bottom: 6px; right: -10px; transform: rotate(20deg); }
+.profile-name { color: var(--plum); }
+.profile-parents strong { color: var(--gold); }
+.ampersand-big, .connector-line { color: var(--rose); }
+.connector-line { background: linear-gradient(90deg, transparent, var(--rose), transparent); }
+
+/* Keluarga: 2 kolom */
+.family-grid { grid-template-columns: repeat(2, 1fr); }
+.family-card { display: flex; flex-direction: column; justify-content: center; padding: 16px 12px; position: relative; }
+.family-card:nth-child(n+5) { grid-column: 1 / -1; }
+.family-card::after { content: ''; position: absolute; top: 6px; right: 6px; width: 16px; height: 16px; background: var(--flower) center / contain no-repeat; opacity: .55; }
+.family-card:hover { background: #fff; border-color: var(--rose); }
+.family-name { color: var(--plum); font-size: 16px; }
+
+/* Kartu rekening ala kartu bank */
+.bank-card { background: linear-gradient(135deg, #7a5489 0%, #a47bb4 55%, #d99bb9 100%); border: 0; box-shadow: 0 18px 34px -14px rgba(104, 72, 117, .6); color: #fff; }
+.bank-card::before { background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .2) 0%, transparent 55%); }
+.bank-card::after { content: ''; position: absolute; right: -18px; bottom: -18px; width: 110px; height: 110px; background: var(--flower) center / contain no-repeat; opacity: .22; filter: brightness(4); pointer-events: none; }
+.bank-brand, .bank-icon, .bank-account-num, .bank-holder { color: #fff; }
+.bank-holder { opacity: .88; }
+.btn-copy { border-color: rgba(255, 255, 255, .75); color: #fff; position: relative; z-index: 2; }
+.btn-copy:hover { background: rgba(255, 255, 255, .2); color: #fff; }
+.btn-copy.copied { background: #fff; border-color: #fff; color: var(--text-white); }
+
+/* Form RSVP */
+.rsvp-form { background: rgba(255, 255, 255, .72); border: 1px solid var(--hair); border-radius: 20px; padding: 24px 20px; box-shadow: var(--lift); }
+.form-group label { color: var(--plum); }
+.form-group label i { color: var(--rose); }
+.form-group input, .form-group textarea, .form-group select { background: #fff; border: 1px solid var(--hair); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: #a58fad; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--rose); background: #fff; box-shadow: 0 0 0 3px rgba(217, 130, 166, .22); }
+.messages-title { color: var(--plum); }
+.message-item { border-left: 3px solid var(--rose); }
+.message-badge.hadir { background: rgba(46, 125, 50, .1); color: #2e7d32; border-color: rgba(46, 125, 50, .3); }
+.message-badge.tidak-hadir { background: rgba(198, 40, 40, .08); color: #c62828; border-color: rgba(198, 40, 40, .25); }
+.messages-list::-webkit-scrollbar-thumb { background: var(--gold-light); }
+
+/* Footer */
+.footer-names { color: var(--plum); }
+.footer-section .salam { margin-top: 18px; }
+
+/* Navigasi bawah: pil melayang */
+.bottom-nav { left: 12px; right: 12px; bottom: 12px; max-width: 440px; margin: 0 auto; border-radius: 28px; padding: 8px 4px 10px; background: rgba(255, 255, 255, .9); border: 1px solid var(--hair); box-shadow: var(--lift); }
+.nav-item::after { top: -8px; background: var(--rose); }
+.nav-item.active { color: var(--plum); }
+.nav-item.active i { color: var(--rose); }
+.toast { bottom: 100px; border-color: var(--rose); color: var(--plum); box-shadow: var(--lift); }
+.music-toggle { box-shadow: var(--lift); }
+
+
+/* ============================================================
+   ELEMEN BUNGA & FRAME (aset: assets/images/*.webp, kupu.gif)
+   ============================================================ */
+.deco { position: absolute; z-index: 1; height: auto; pointer-events: none; user-select: none; }
+.deco-bouquet { width: 98px; top: -4px; left: -10px; }
+.deco-bouquet.r { left: auto; right: -10px; transform: scaleX(-1); }
+.deco-kupu { width: 100px; right: 16px; bottom: 0; }
+.deco-flow { display: block; width: 150px; height: auto; margin: 26px auto 0; pointer-events: none; }
+@media (min-width: 1025px) { .deco-bouquet { width: 190px; } .deco-kupu { width: 130px; } }
+
+/* Save the Date di dalam karangan lavender */
+.date-plaque { border: 0; padding: 0; max-width: 300px; }
+.dp-wreath { position: relative; width: 300px; height: 300px; margin: -4px auto 0; }
+.dp-wreath img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dp-core { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--plum); font-family: var(--font-heading); }
+.dp-core span { font-size: 11px; letter-spacing: 2px; }
+.dp-core strong { font-family: var(--font-serif); font-size: 64px; font-weight: 700; line-height: 1.05; }
+.dp-time { margin-top: -6px; font-family: var(--font-heading); font-size: 13px; letter-spacing: 3px; color: var(--rose-gold); }
+
+/* Mempelai: tiap profil di dalam frame lengkung emas + bunga */
+.profile-card { position: relative; isolation: isolate; width: 100%; max-width: 340px; aspect-ratio: 800 / 1423; margin: 0 auto; padding: 14% 10% 9%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.profile-card::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('assets/images/frame-arch.webp') center / 100% 100% no-repeat; }
+.profile-card ~ .profile-card::before { transform: scaleX(-1); }
+.profile-photo-wrapper { width: 170px; height: 170px; margin-bottom: 16px; }
+.profile-photo { width: 170px; height: 170px; }
+.profile-photo-wrapper::before, .profile-photo-wrapper::after { display: none; }
+
+/* Nama gedung di atas alamat */
+.event-row .venue { display: block; margin-bottom: 2px; font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--plum); }
